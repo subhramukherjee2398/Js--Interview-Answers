@@ -83,4 +83,8 @@ dog.speak(); // Output: Buddy is a Dog and says hello!
 
 ```
 
+## General Methods in Object
+
+Ans : sorce : https://www.w3schools.com/js/js_object_methods.asp
+
 ## 
