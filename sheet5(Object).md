@@ -85,6 +85,85 @@ dog.speak(); // Output: Buddy is a Dog and says hello!
 
 ## General Methods in Object
 
-Ans : sorce : https://www.w3schools.com/js/js_object_methods.asp
+Ans : source : https://www.w3schools.com/js/js_object_methods.asp
 
-## 
+## Object's Property Management Methods?
+
+Ans : source : https://www.w3schools.com/js/js_object_properties.asp
+
+##  Object Protection Methods ?
+
+Ans : https://www.w3schools.com/js/js_object_protection.asp
+
+## Differnce between sealed and frozen and prevent extensions?
+
+Ans : 
+![alt text](./Images/s_f_p.png)
+
+
+## Spread vs Rest parameter in JS?
+
+Ans : 
+
+**Spread Operator**
+
+**Purpose:**:
+
+ - The spread operator is used to expand or spread iterable elements (like arrays or objects) into individual elements.
+
+- Usage: It can be used in function calls, array literals, or object literals , copying of array and object elements.
+
+**Function Calls:**
+
+```
+const numbers = [1, 2, 3];
+const max = Math.max(...numbers); // spreads elements into individual arguments
+console.log(max); // 3
+```
+**Array Literals or Merging:**
+
+```
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+const combined = [...arr1, ...arr2]; // spreads elements of arr1 and arr2
+console.log(combined); // [1, 2, 3, 4]
+```
+**Object Literals or Merging:**
+
+```
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+const merged = { ...obj1, ...obj2 }; // spreads properties of obj1 and obj2
+console.log(merged); // { a: 1, b: 3, c: 4 }
+
+```
+Copying of array and object elements:
+
+```
+const arr = [1, 2, 3];
+const copiedArr = [...arr]; // copies elements of arr
+arr.push(4); // modifies original array
+console.log(copiedArr); // [1, 2, 3]
+
+const obj = { a: 1, b: 2 };
+const copiedObj = { ...obj }; // copies properties of obj
+obj.b = 3; // modifies original object
+console.log(copiedObj); // { a: 1, b: 2 }
+```
+
+**Rest Parameter:**
+
+- The rest parameter is a special parameter that allows you to pass an array or object as multiple arguments and also for destructuring assignment.
+
+```
+function sum(...numbers) { // gathers all arguments into an array
+    return numbers.reduce((acc, curr) => acc + curr, 0);
+}
+
+console.log(sum(1, 2, 3, 4)); // 10
+
+```
+
+```
+const [first, ...rest] = [1, 2, 3, 4, 5]; // destructuring assignment
+```
