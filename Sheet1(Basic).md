@@ -113,3 +113,19 @@ closureFunc(); // Output: "I am from the outer scope!"
 
 
 ```
+
+## 4.What is Event Loop?
+
+1.JavaScript is single-threaded, meaning it can execute one task at a time. However, it can handle asynchronous operations through an event-driven model.
+
+2.When a JavaScript program runs, functions are pushed onto a call stack. When a function is called, it executes and then is popped off the stack when completed.
+
+3.For asynchronous operations (like setTimeout, network requests, etc.), JavaScript utilizes Web APIs. These operations are handed off to the browser's APIs, which handle them outside the JavaScript engine.
+
+4.Once an asynchronous operation is completed, its callback function is added to the callback queue/Task queue. This queue holds messages waiting to be processed.
+
+5.The event loop continuously checks the call stack. If it’s empty and there are tasks in the callback queue and processed to next step.
+
+6.The event loop checks the microtask queue. If there are any microtasks, it will execute them all before moving to the next macrotask (ex: promise)
+
+7.Once the microtask queue is empty, the event loop takes the next macrotask from the macrotask queue and executes it.

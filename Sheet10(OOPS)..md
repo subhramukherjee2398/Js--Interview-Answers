@@ -648,7 +648,98 @@ user.log(); // Output: Logging: Charlie
 
 ```
 
+## How do you handle multiple inheritance in JavaScript?
 
+**1. Mixins**
+
+```
+const CanFly = (Base) => class extends Base {
+  fly() {
+    console.log("Flying!");
+  }
+};
+
+const CanSwim = (Base) => class extends Base {
+  swim() {
+    console.log("Swimming!");
+  }
+};
+
+class Animal {
+  eat() {
+    console.log("Eating!");
+  }
+}
+
+// Apply mixins
+class Duck extends CanSwim(CanFly(Animal)) {}
+
+const duck = new Duck();
+duck.eat();   // Output: Eating!
+duck.fly();   // Output: Flying!
+duck.swim();  // Output: Swimming!
+
+```
+**2. Composition using Object.assign**
+
+```
+
+const flying = {
+  fly() {
+    console.log("Flying!");
+  }
+};
+
+const swimming = {
+  swim() {
+    console.log("Swimming!");
+  }
+};
+
+const duck = Object.assign({}, flying, swimming);
+duck.fly();   // Output: Flying!
+duck.swim();  // Output: Swimming!
+
+```
+
+**3. ES6 Class Mixins with Functional Composition**
+
+```
+function compose(...mixins) {
+  return (Base) => mixins.reduce((acc, mixin) => mixin(acc), Base);
+}
+
+const Duck = compose(CanFly, CanSwim)(Animal);
+
+const duck = new Duck();
+duck.fly();   // Output: Flying!
+duck.swim();  // Output: Swimming!
+
+```
+**4. Delegation/Proxy Approach**
+
+```
+const CanQuack = {
+  quack() {
+    console.log("Quacking!");
+  }
+};
+
+const CanWalk = {
+  walk() {
+    console.log("Walking!");
+  }
+};
+
+const duck = {
+  ...CanQuack,
+  ...CanWalk
+};
+
+duck.quack(); // Output: Quacking!
+duck.walk();  // Output: Walking!
+
+```
 
 
 ## what are thoose oops concept not supported in javascript?
