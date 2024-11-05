@@ -1,25 +1,25 @@
 
-#  Basic
+# ✰  Basic
 
-## 1 .What is the difference between var, let, and const?
+## What is the difference between var, let, and const?
 
 Ans : 
 
 **var** : 
 
-Scope: Function-scoped or globally scoped. If declared outside a function, it is accessible anywhere in the script. Inside a function, it is only accessible within that function.
+`Scope:` Function-scoped or globally scoped. If declared outside a function, it is accessible anywhere in the script. Inside a function, it is only accessible within that function.
 
-Hoisting: Variables declared with var are hoisted to the top of their containing function or global context. This means they can be referenced before their declaration, but their value will be undefined until the declaration line is reached.
+`Hoisting`: Variables declared with var are hoisted to the top of their containing function or global context. This means they can be referenced before their declaration, but their value will be undefined until the declaration line is reached.
 
-Re-declaration: You can re-declare a var variable within the same scope.
+`Re-declaration:` You can re-declare a var variable within the same scope.
 
 **let** :
 
-Scope: Block-scoped. Variables declared with let are only accessible within the block {} they are defined in.
+`Scope:` Block-scoped. Variables declared with let are only accessible within the block {} they are defined in.
 
-Hoisting: Similar to var, let variables are hoisted, but they cannot be accessed until the declaration is encountered (this is known as the "temporal dead zone").
+`Hoisting:` Similar to var, let variables are hoisted, but they cannot be accessed until the declaration is encountered (this is known as the "temporal dead zone").
 
-Re-declaration: You cannot re-declare a let variable in the same scope.
+`Re-declaration:` You cannot re-declare a let variable in the same scope.
 
 **const** :
 
@@ -31,7 +31,7 @@ Re-declaration: You cannot re-declare a const variable in the same scope.
 Mutability: Variables declared with const cannot be reassigned. However, if the variable is an object or an array, you can still modify its properties or elements
 
 
-## 2. What is the use of "use strict" in js ?
+## What is the use of "use strict" in js ?
 
 Ans : Basuically use strict is a optional flag that can be used to enable stricter parsing and error handling in ECMAScript modules.
 
@@ -66,7 +66,7 @@ console.log(globalThis); // Works in Browser, Node.js, Deno, Web Workers, etc.
 
 Ans : 
 
-Scope refers to the visibility or accessibility of variables, functions, and objects in some particular part of your code during runtime.
+Scope refers to the visibility or accessibility of variables, functions, and objects in some particular part of our code during runtime.
 
 There are different types of scopes in JavaScript:
 
@@ -90,13 +90,14 @@ Ans : Hoisting is a JavaScript mechanism where variable and function declaration
 - let and const are also hoisted but are in a "Temporal Dead Zone" until declared.
 - Function declarations are fully hoisted, while function expressions are not.
 
-## what is closure in JavaScript?
+## What is closure in JavaScript?
 
 Ans : In javascript ,if we have a child function inside a parent function, the child function can access the variables of the parent function even after the parent function has finished executing. That Means closure allows a function to "remember" its surrounding context or environment, even after that context has finished executing.
 
-so we can say that a function always binds with it's lexical scope that forms a closure.
+so we can say in a easier way that a function always binds with it's lexical scope that forms a closure.
 
-```
+```js
+
 
 function outerFunction() {
     let outerVariable = 'I am from the outer scope!';
@@ -114,7 +115,7 @@ closureFunc(); // Output: "I am from the outer scope!"
 
 ```
 
-## 4.What is Event Loop?
+## What is Event Loop?
 
 1.JavaScript is single-threaded, meaning it can execute one task at a time. However, it can handle asynchronous operations through an event-driven model.
 
@@ -122,7 +123,7 @@ closureFunc(); // Output: "I am from the outer scope!"
 
 3.For asynchronous operations (like setTimeout, network requests, etc.), JavaScript utilizes Web APIs. These operations are handed off to the browser's APIs, which handle them outside the JavaScript engine.
 
-4.Once an asynchronous operation is completed, its callback function is added to the callback queue/Task queue. This queue holds messages waiting to be processed.
+4.Once an asynchronous operation is completed by web apis, its callback function is added to the callback queue/Task queue. This queue holds messages waiting to be processed.
 
 5.The event loop continuously checks the call stack. If it’s empty and there are tasks in the callback queue and processed to next step.
 
