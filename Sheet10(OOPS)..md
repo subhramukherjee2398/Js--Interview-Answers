@@ -718,7 +718,7 @@ duck.swim();  // Output: Swimming!
 ```
 **4. Delegation/Proxy Approach**
 
-```
+```js
 const CanQuack = {
   quack() {
     console.log("Quacking!");

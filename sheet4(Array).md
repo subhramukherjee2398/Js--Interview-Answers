@@ -10,13 +10,13 @@ Ans :
 
 1.Literal or [] bracker :
 
-```
+```js
 let arr = [1, 2, 3, 4];
 ```
 
 2.new Array() Constructor :
 
-```// Creating an empty array
+```js // Creating an empty array
 let arr1 = new Array();
 console.log(arr1); // Output: []
 
