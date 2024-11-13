@@ -207,6 +207,9 @@ Ans :  Symbols are unique and immutable values used as property keys, often for 
 
 
 
+
+
+
 21. **What are typed arrays in JavaScript, and when would you use them?**
     Typed arrays are array-like objects for handling binary data in memory-efficient ways, useful in WebGL and other binary-heavy applications.
 
