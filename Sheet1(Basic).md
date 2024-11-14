@@ -127,6 +127,24 @@ closureFunc(); // Output: "I am from the outer scope!"
 
 5.The event loop continuously checks the call stack. If it’s empty and there are tasks in the callback queue and processed to next step.
 
-6.The event loop checks the microtask queue. If there are any microtasks, it will execute them all before moving to the next macrotask (ex: promise)
+6.The event loop checks the microtask queue. If there are any microtasks, it will execute them all before moving to the next macrotask (ex: setTimeout)
 
 7.Once the microtask queue is empty, the event loop takes the next macrotask from the macrotask queue and executes it.
+Here's a list of **microtasks** and **macrotasks** in JavaScript:
+
+#### Microtasks:
+1. Promises (`.then()` and `.catch()`)
+2. `queueMicrotask()`
+3. `MutationObserver` callbacks
+4. `process.nextTick()` (Node.js-specific)
+
+#### Macrotasks:
+1. `setTimeout()`
+2. `setInterval()`
+3. `setImmediate()` (Node.js-specific)
+4. `requestAnimationFrame()` (browser-specific)
+5. I/O operations (e.g., `fs.readFile()` in Node.js)
+6. User interface rendering tasks (browser-specific)
+7. Event listeners (e.g., `click`, `keydown` events)
+
+This breakdown helps you understand which tasks run first and how the event loop handles each type.
