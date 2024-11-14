@@ -26,11 +26,13 @@ Ans : Strings are immutable.It is **read only**. str[0] = "A" gives no error (bu
 
 Ans : The difference is that start and end values less than 0 are treated as 0 in substring(). That's mean it does not take negative values.
 
+
+
 ## substr vs slice vs substring ?
 
 Ans : substr() second parameter specifies the length of the extracted part.(How manay character we want to extract)
 
-```
+```js
 let text = "Apple, Banana, Kiwi";
 
 
@@ -54,7 +56,7 @@ Ans : It pads a string with another string (multiple times) until it reaches a g
 
 padStart() and padEnd() methods are used to pad a string with a specified character or string.
 
-```
+```js
 console.log(text.padStart(40,"XXX")) // XXXXXXXXXXXXXXXXXXXXXApple, Banana, Kiwi
 ```
 
@@ -62,7 +64,7 @@ console.log(text.padStart(40,"XXX")) // XXXXXXXXXXXXXXXXXXXXXApple, Banana, Kiwi
 
 Ans : use regex with i flag
 
-```
+```js
 let text = "Please visit Microsoft!";
 let newText = text.replace(/MICROSOFT/i, "W3Schools");
 ```
@@ -70,7 +72,7 @@ let newText = text.replace(/MICROSOFT/i, "W3Schools");
 
 Ans : use regex with g flag
 
-```
+```js
 let text = "Please visit Microsoft and Microsoft!";
 let newText = text.replace(/Microsoft/g, "W3Schools");
 ```
@@ -93,7 +95,7 @@ Ans : **source** : https://www.w3schools.com/js/js_math.asp
 
 ## Math.round() vs Math.floor() vs Math.ceil() vs Math.trunc() in JS?
 
-```
+```js
 let numPositive = 4.6;
 let numNegative = -4.6;
 
@@ -121,7 +123,7 @@ Ans : which generates a floating-point number between 0 (inclusive) and 1 (exclu
 ## How do you generate a random integer between two numbers (inclusive)?
 
 Ans : 
-```
+```js
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }

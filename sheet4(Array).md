@@ -32,7 +32,7 @@ console.log(arr3); // Output: [1, 2, 3, 4]
 
 3.Array.of()
 
-```
+```js
 let arr = Array.of(1, 2, 3, 4);
 console.log(arr); // Output: [1, 2, 3, 4]
 
@@ -40,7 +40,7 @@ console.log(arr); // Output: [1, 2, 3, 4]
 
 4.Array.from()
 
-```
+```js
 // Converting a string to an array
 let arr = Array.from("hello");
 console.log(arr); // Output: ['h', 'e', 'l', 'l', 'o']
@@ -54,7 +54,7 @@ console.log(arrFromSet); // Output: [1, 2, 3]
 
 5.Array Spread Syntax (...)
 
-```
+```js
 let arr = [1, 2, 3];
 let arr2 = [...arr, 4, 5, 6];
 console.log(arr2); // Output: [1, 2, 3, 4, 5, 6]
@@ -62,7 +62,7 @@ console.log(arr2); // Output: [1, 2, 3, 4, 5, 6]
 
 6.Array.fill()
 
-```
+```js
 let arr = new Array(5).fill(0);
 console.log(arr); // Output: [0, 0, 0, 0, 0]
 
@@ -70,7 +70,7 @@ console.log(arr); // Output: [0, 0, 0, 0, 0]
 
 7.Array.concat()
 
-```
+```js
 let arr1 = [1, 2];
 let arr2 = [3, 4];
 let combinedArr = arr1.concat(arr2);
@@ -80,7 +80,7 @@ console.log(combinedArr); // Output: [1, 2, 3, 4]
 
 ## What are Array Methods?
 
-Ans : **Source** : https://www.w3schools.com/js/js_arrays.asp
+Ans : **Source** : https://www.w3schools.com/js/js_array_methods.asp
 
 ## typeof(array)?
 
@@ -90,7 +90,7 @@ Ans : Array is an object.
 
 Ans :
 
-```
+```js
 // Create an array with one element:
 const points = [40];
 
@@ -102,7 +102,7 @@ const points = new Array(40);
 
 Ans :
 
-```
+```js
 const fruits = ["Banana", "Orange", "Apple"];
 
 1.Array.isArray(fruits);
@@ -114,7 +114,7 @@ const fruits = ["Banana", "Orange", "Apple"];
 
 Ans : 
 
-```
+```js
 let arr = [];
 console.log(arr.length); // Output: 0
 
@@ -132,9 +132,12 @@ Ans : join()=> addition you can specify the separator:
 
 ## What will output?
 
-```
+```js
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 delete fruits[0];
+
+console.log(fruits); // [undefined, "Orange", "Apple", "Mango"]
+console.log(fruits.length); // 4
 
 ```
 Answer : undefined
@@ -143,7 +146,7 @@ Answer : undefined
 
 ans : flat() method creates a new array with all sub-array elements concatenated into it at a depth equal to the depth of the sub-array.
 
-```
+```js
 const myArr = [[1,2],[3,4],[5,6]];
 const newArr = myArr.flat();
 
@@ -161,12 +164,12 @@ The flatMap() method first maps all elements of an array and then creates a new 
 ## Explain splice() method?
 
 Ans : The splice() method can be used to add new items to an array:
-```
+```js
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 fruits.splice(2, 0, "Lemon", "Kiwi");
 ```
 
-```
+```js
 The first parameter (2) defines the position where new elements should be added (spliced in).
 
 The second parameter (0) defines how many elements should be removed.
@@ -176,7 +179,7 @@ The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be adde
 
 **Also Remove**
 
-```
+```js
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 fruits.splice(0, 1);
 
@@ -188,7 +191,7 @@ Ans : ES2023 added the Array toSpliced() method as a safe way to splice an array
 
 The difference between the new toSpliced() method and the old splice() method is that the new method creates a new array, keeping the original array unchanged, while the old method altered the original array.
 
-```
+```js
 const months = ["Jan", "Feb", "Mar", "Apr"];
 const spliced = months.toSpliced(0, 1);
 ```
@@ -197,7 +200,7 @@ const spliced = months.toSpliced(0, 1);
 
 Ans : The slice() method can be used to extract a portion of an array:
 
-```
+```js
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 const sliced = fruits.slice(1, 3);
 
@@ -227,14 +230,14 @@ Ans : ES2023 added the toSorted() method as a safe way to sort an array without 
 
 The difference between toSorted() and sort() is that the first method creates a new array, keeping the original array unchanged, while the last method alters the original array.
 
-```
+```js
 const months = ["Jan", "Feb", "Mar", "Apr"];
 const sorted = months.toSorted();
 ```
 **toReversed** same as toSorted(), doesnot modify.
 
 
-```
+```js
 const months = ["Jan", "Feb", "Mar", "Apr"];
 const reversed = months.toReversed();
 
@@ -244,7 +247,7 @@ const reversed = months.toReversed();
 
 The .with() method used in your example is part of the immutable array methods introduced in ECMAScript 2023 (ES14). It creates a new array by replacing the element at a given index with a new value, without modifying the original array.
 
-```
+```js
 const months = ["Januar", "Februar", "Mar", "April"];
 const myMonths = months.with(2, "March");
 
@@ -261,7 +264,7 @@ Ans : Array.from() will convert the given value into array, Array() will create 
 
 Ans : The JavaScript method toString() converts an array to a string of (comma separated) array values.
 
-```
+```js
 let arr = [1, 2, 3, 4];
 console.log(arr.toString()); // Output: 1,2,3,4
 
@@ -271,7 +274,7 @@ console.log(arr.toString()); // Output: 1,2,3,4
 
 Ans : The JavaScript method split() converts a string to an array of characters.
 
-```
+```js
 let str = "hello";
 let arr = str.split("");
 console.log(arr); // Output: ['h', 'e', 'l', 'l', 'o']
@@ -282,7 +285,7 @@ console.log(arr); // Output: ['h', 'e', 'l', 'l', 'o']
 
 Ans : The JavaScript method parseInt() converts an array to a number.
 
-```
+```js
 let arr = [1, 2, 3, 4];
 let num = parseInt(arr);
 console.log(num); // Output: 1234
@@ -299,7 +302,7 @@ You can convert a number into an array where each element is a digit of the numb
 
 #### Method 1: Using .toString() and Array.from()
 
-```
+```js
 let num = 12345;
 let arr = Array.from(String(num), Number);
 console.log(arr); // Output: [1, 2, 3, 4, 5]
@@ -312,7 +315,7 @@ The Number function converts each string element back to a number.
 
 #### Method 2: Using .toString() and .split()
 
-```
+```js
 let num = 6789;
 let arr = num.toString().split('').map(Number);
 console.log(arr); // Output: [6, 7, 8, 9]
@@ -329,7 +332,7 @@ If you want to convert a number to an array where the number is the only element
 
 #### Using Array Literal Notation
 
-```
+```js
 let num = 123;
 let arr = [num];
 console.log(arr); // Output: [123]
@@ -337,7 +340,7 @@ console.log(arr); // Output: [123]
 
 #### Using Array.of()
 
-```
+```js
 let num = 456;
 let arr = Array.of(num);
 console.log(arr); // Output: [456]
@@ -349,7 +352,7 @@ If you want to create an array of numbers within a certain range (e.g., from 1 t
 
 #### Using Array.from()
 
-```
+```js
 let start = 1;
 let end = 10;
 let arr = Array.from({ length: end - start + 1 }, (_, i) => start + i);
@@ -364,7 +367,7 @@ The callback (start + i) generates the numbers in the range.
 
 Ans : The JavaScript method every() converts an array to a boolean.
 
-```
+```js
 let arr = [1, 2, 3, 4];
 let bool = arr.every(Number.isInteger);
 console.log(bool); // Output: true
