@@ -134,12 +134,14 @@ Event propagation is the process by which an event travels through the DOM when 
 - **Capturing Phase**: The event starts at the root and moves down the DOM tree to the target element.
 - **Bubbling Phase**: The event starts at the target element and bubbles up to the root.
 
+source : https://youtu.be/XnezDeTKVUY?si=N2ncu3Ze4vUoZa4J
+
 ## Stopping Event Propagation
 To stop an event from propagating, use:
 - `event.stopPropagation()`: Stops the event from bubbling or capturing.
 - `event.preventDefault()`: Prevents the default action of the event.
 
-### 11. Difference Between `preventDefault()` and `return false`
+## Difference Between `preventDefault()` and `return false`
 - **`preventDefault()`**: Prevents the default action but doesn’t stop event propagation.
 - **`return false`**: In jQuery, it stops both the default action and event propagation. In plain JavaScript, `return false` only stops the default action within inline event handlers.
 
