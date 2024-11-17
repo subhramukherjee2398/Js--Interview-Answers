@@ -2,14 +2,14 @@
 
 Here's a structured breakdown of these key concepts:
 
-### 1. What is DOM?
+##  What is DOM?
 The **DOM (Document Object Model)** is a programming interface for HTML and XML documents, representing the structure of a document as a tree of nodes. Each HTML element, attribute, and piece of content is a node in this tree, which allows programming languages like JavaScript to dynamically access and modify the document’s structure, style, and content.
 
-### 2. Difference between `document` and `window`
+##  Difference between `document` and `window`
 - **`document`**: Represents the HTML document itself and contains properties and methods for accessing and modifying the page’s content.
 - **`window`**: Represents the browser window that contains the `document`. It is the global object, providing access to features like `alert()`, `setTimeout()`, and `localStorage`.
 
-### 3. What are DOM elements?
+##  What are DOM elements?
 **DOM elements** are nodes within the Document Object Model representing HTML tags and structures. These elements serve as the building blocks of a web page, allowing for interaction and manipulation through JavaScript.
 
 Example:
@@ -25,7 +25,7 @@ Example:
 </html>
 ```
 
-### 4. Accessing DOM Elements Using JavaScript
+## Accessing DOM Elements Using JavaScript
 Common methods:
 1. `document.getElementById(id)`
 2. `document.getElementsByClassName(className)`
@@ -41,39 +41,40 @@ Common methods:
 12. `element.firstElementChild`
 13. `element.lastElementChild`
 
-### 5. Difference between `getElementById` and `getElementsByClassName`
+## Difference between `getElementById` and `getElementsByClassName`
 - **`getElementById()`**: Returns a single element by its ID.
 - **`getElementsByClassName()`**: Returns multiple elements with a specified class name as a live HTMLCollection.
 
-### 6. Difference between `getElementsByTagName` and `querySelector`
+## Difference between `getElementsByTagName` and `querySelector`
 - **`getElementsByTagName()`**: Accesses multiple elements by tag name, returning a live HTMLCollection.
 - **`querySelector()`**: Accesses a single element based on any valid CSS selector.
 
-### 7. Difference between `getElementsByClassName` and `querySelectorAll`
+## Difference between `getElementsByClassName` and `querySelectorAll`
 - **`getElementsByClassName()`**: Returns a live HTMLCollection, which updates dynamically if elements are added or removed.
 - **`querySelectorAll()`**: Returns a static NodeList, capturing a snapshot of matching elements at the time of the call.
 
-### 8. Difference between `querySelector` and `getElementById`
+## Difference between `querySelector` and `getElementById`
 - **`querySelector()`**: Selects elements based on CSS selectors, like classes, IDs, tag names, and more, returning the first matching element.
 - **`getElementById()`**: Selects only by ID, returning the single matching element.
 
-### 9. Changing HTML Content
+## Changing HTML Content
 Methods:
 - `innerHTML`: Changes HTML content within an element.
 - `textContent`: Changes only the text content, ignoring any HTML tags.
 - `innerText`: Similar to `textContent`, but respects styles and visibility.
 - `setAttribute`: Sets an attribute value for an element.
 
-### 10. Changing Style of an Element
+## Changing Style of an Element
+
 Example:
-```javascript
+```js
 element.style.color = 'red';
 ```
 This directly modifies the `color` style property of the `element` to red.
 
 Here's a refined breakdown of each topic:
 
-### 1. What is an Event in the DOM, and How Do You Handle It?
+## What is an Event in the DOM, and How Do You Handle It?
 An **event** in the DOM is an interaction or occurrence, such as a mouse click, a keypress, or a form submission, that JavaScript can detect and respond to.
 
 Common event types:
@@ -82,17 +83,17 @@ Common event types:
 - **Form Events**: `submit`, `change`, `focus`, `blur`
 - **Window Events**: `load`, `resize`, `scroll`
 
-### 2. Difference Between `innerHTML` and `textContent`
+## Difference Between `innerHTML` and `textContent`
 - **`innerHTML`**: Retrieves or sets the HTML content of an element, including HTML tags.
 - **`textContent`**: Retrieves or sets only the text content of an element, ignoring any HTML tags.
 
-### 3. Creating and Appending a New Element to the DOM
+## Creating and Appending a New Element to the DOM
 1. **Create** the element with `document.createElement()`.
 2. **Set attributes or content** with `textContent`, `innerHTML`, or `setAttribute`.
 3. **Append the element** using `element.appendChild()`.
 4. Optionally, insert it before a reference node with `insertBefore(newNode, referenceNode)`.
 
-### 4. Removing an Element from the DOM
+## Removing an Element from the DOM
 Methods:
 1. `element.remove()`
 2. `element.parentNode.removeChild(element)`
