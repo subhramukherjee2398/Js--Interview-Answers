@@ -100,29 +100,41 @@ Methods:
 3. `element.outerHTML = ''`
 4. `element.removeAttribute(attribute)`
 
-### 5. `parentNode` vs. `parentElement`
+##  parentNode vs. parentElement
 - **`parentNode`**: Returns the immediate parent node, regardless of type.
 - **`parentElement`**: Returns the parent if it is an element node; otherwise, it returns `null`.
 
-### 6. What is Event Delegation, and Why Is It Useful?
+## What is Event Delegation, and Why Is It Useful?
 **Event delegation** is a technique where you attach a single event listener to a parent element instead of individual child elements. This allows events to "bubble up" to the parent, where the parent can handle events triggered by any child.
 
 Benefits:
 - Efficient when dealing with dynamic elements.
 - Reduces the number of event listeners in memory.
 
-### 7. Difference Between `addEventListener` and `onclick`
+```js
+
+const list = document.querySelector('.list');
+
+list.addEventListener('click', (event) => {
+  if (event.target.classList.contains('item')) {
+    console.log('Item clicked:', event.target.textContent);
+  }
+});
+
+```
+
+## Difference Between `addEventListener` and `onclick`
 - **`addEventListener`**: Attaches multiple event listeners to an element and supports specifying the event phase.
 - **`onclick`**: Attaches a single click event listener to an element. Overwriting `onclick` replaces any previous `onclick` handler.
 
-### 8. What is Event Propagation?
+## What is Event Propagation?
 Event propagation is the process by which an event travels through the DOM when triggered on an element. There are three phases: capturing, at target, and bubbling.
 
-### 9. What is Bubbling and Capturing in DOM Events?
+## What is Bubbling and Capturing in DOM Events?
 - **Capturing Phase**: The event starts at the root and moves down the DOM tree to the target element.
 - **Bubbling Phase**: The event starts at the target element and bubbles up to the root.
 
-### 10. Stopping Event Propagation
+## Stopping Event Propagation
 To stop an event from propagating, use:
 - `event.stopPropagation()`: Stops the event from bubbling or capturing.
 - `event.preventDefault()`: Prevents the default action of the event.
