@@ -1,7 +1,7 @@
 
 # Coding Challenge : Javascript
 
-## How to define a class with properties and methods in JavaScript?
+## 1.How to define a class with properties and methods in JavaScript?
 
 
 ```js 
@@ -22,7 +22,7 @@ class Car {
  Jeep.start()
 ```
 
-## How to implement class inheritance in JavaScript?
+## 2.How to implement class inheritance in JavaScript?
 
 ```js
 
@@ -46,7 +46,7 @@ class Parent {
  Enc.start()
 ```
 
-## How to find duplicate elements in a given array?
+## 3.How to find duplicate elements in a given array?
 
 ```js
 let arr = [1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10]
@@ -57,7 +57,7 @@ let duplicate = arr.filter(function(item, index, array){
 });
 console.log(duplicate)
 ```
-## How to find duplicate elements in a given array?
+## 4.How to find duplicate elements in a given array?
 
 ```js
 
@@ -78,7 +78,7 @@ let duplicate = arr.filter(function(item, index, array){
 console.log(duplicate)
 ```
 
-## Count Occurrences of a Character in a String
+## 5.Count Occurrences of a Character in a String
 
 ```js
 let str = "hello world";
@@ -112,13 +112,13 @@ console.log(d); // Expected output: { h: 1, e: 1, l: 3, o: 2, ' ': 1, w: 1, r: 1
 
 ```
 
-## How to check if a given number is an integer?
+## 6.How to check if a given number is an integer?
 
 ```js
 console.log(Number.isInteger(123))
 ```
 
-## Sort a given array of strings?
+## 7.Sort a given array of strings?
 
 ```js
 const arr = ["apple", "banana", "orange", "grape", "mango"];
@@ -129,7 +129,7 @@ arr.sort((a, b) => a.localeCompare(b));
 console.log(arr);
 ```
 
-## find unique elements in an array
+## 8.find unique elements in an array
 
 ```js
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -142,7 +142,7 @@ console.log(unique);
 const uniqueArr = [...new Set(arr)];
 ```
 
-## Find maximum value in a numbered array?
+## 9.Find maximum value in a numbered array?
 
 ```js
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -160,7 +160,16 @@ let max = arr.reduce((prev,curr)=>{
 
 ```
 
-## How can you uppercase the first character in a string array?
+## 10.How can you uppercase the first character in a string array?
 
+```js
+const stringArray = ["hello", "world", "javascript", "developer"];
 
+```
+```js
+const capitalizedArray = stringArray.map(str => 
+  str.charAt(0).toUpperCase() + str.slice(1)
+);
+```
 
+## 11.
