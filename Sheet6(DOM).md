@@ -145,7 +145,7 @@ To stop an event from propagating, use:
 - **`preventDefault()`**: Prevents the default action but doesn’t stop event propagation.
 - **`return false`**: In jQuery, it stops both the default action and event propagation. In plain JavaScript, `return false` only stops the default action within inline event handlers.
 
-### 12. Difference Between `addEventListener` and `attachEvent`
+## Difference Between `addEventListener` and `attachEvent`
 - **`addEventListener`**: Standard method for attaching events (works in modern browsers).
 - **`attachEvent`**: Used only in older versions of Internet Explorer.
 
