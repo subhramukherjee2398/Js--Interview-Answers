@@ -145,22 +145,22 @@ To stop an event from propagating, use:
 - **`preventDefault()`**: Prevents the default action but doesn’t stop event propagation.
 - **`return false`**: In jQuery, it stops both the default action and event propagation. In plain JavaScript, `return false` only stops the default action within inline event handlers.
 
-### 12. Difference Between `addEventListener` and `attachEvent`
+## Difference Between `addEventListener` and `attachEvent`
 - **`addEventListener`**: Standard method for attaching events (works in modern browsers).
 - **`attachEvent`**: Used only in older versions of Internet Explorer.
 
-### 13. Detecting Which Element Triggered an Event
+## Detecting Which Element Triggered an Event
 Use `event.target` to identify the element that triggered an event.
 
-### 14. Detecting Which Element Triggered an Event During Bubbling
+##  Detecting Which Element Triggered an Event During Bubbling
 Use `event.currentTarget` or `this` within the event handler to refer to the element to which the event listener is attached.
 
-### 15. Handling Dynamic Elements in the DOM
+## Handling Dynamic Elements in the DOM
 Use **event delegation** to handle events for elements added to the DOM after the page loads.
 
 Here's a breakdown of these concepts:
 
-### 1. What is the `DOMContentLoaded` Event?
+##  What is the `DOMContentLoaded` Event?
 The **DOMContentLoaded** event is fired when the initial HTML document has been fully loaded and parsed, without waiting for stylesheets, images, and other external resources to load.
 
 - **Timing**: Fires as soon as the DOM is ready for JavaScript to manipulate.
@@ -171,35 +171,35 @@ The **DOMContentLoaded** event is fired when the initial HTML document has been 
 - **DOMContentLoaded**: Fires when the HTML is loaded and parsed.
 - **load**: Fires when the entire page, including resources like images and scripts, is fully loaded.
 
-### 2. Modifying Classes of an Element
+## Modifying Classes of an Element
 Methods to modify classes:
 1. `element.classList.add(className)`
 2. `element.classList.remove(className)`
 3. `element.classList.toggle(className)` – Adds the class if it isn’t there, removes it if it is.
 4. `element.classList.contains(className)` – Checks if a class exists on the element.
 
-### 3. Difference Between `appendChild` and `innerHTML` for Adding Elements
+## Difference Between `appendChild` and `innerHTML` for Adding Elements
 - **`appendChild`**: Safely adds a single element or node to the DOM without re-parsing.
 - **`innerHTML`**: Allows adding multiple elements or HTML strings at once, but re-parses the content, potentially causing performance and security issues.
 
-### 4. Cloning an Element in the DOM
+## Cloning an Element in the DOM
 Use `cloneNode()` to duplicate elements:
 - `cloneNode(true)`: Clones the element and its entire subtree.
 - `cloneNode(false)`: Clones only the element, not its children.
 
-### 5. What is Shadow DOM?
+## What is Shadow DOM?
 The **Shadow DOM** is a web standard that allows developers to create a separate, encapsulated DOM tree within an element. This "shadow tree" is isolated from the main DOM (also called the "light DOM") and has its own styles, unaffected by global document styles.
 
-### 6. `performance.now()`
+## What is `performance.now()`
 `performance.now()` provides a high-resolution timestamp in milliseconds, helpful for measuring event or process durations with accuracy.
 
-### 7. What is Reflow?
+## What is Reflow?
 **Reflow** is the process of recalculating the layout of the page, determining the size, position, and geometry of elements. Reflows can be resource-intensive and slow down rendering.
 
-### 8. What is Repaint?
+## What is Repaint?
 **Repaint** refers to the process of redrawing visible elements on the page without changing layout. It is generally faster than reflow as it involves only rendering pixels.
 
-### 9. Document Fragment
+## Document Fragment
 A **DocumentFragment** is a lightweight DOM object that allows adding multiple elements to it without causing reflows or repaints. Only when the fragment is appended to the main DOM does a single reflow and repaint occur.
 
 Example:
