@@ -2,7 +2,7 @@
 
 Ans :
 
-#### 1. **componentDidMount** (Runs once after initial render)
+### 1. **componentDidMount** (Runs once after initial render)
 
 ```js
 useEffect(() => {
@@ -14,7 +14,7 @@ useEffect(() => {
 }, []); // Empty dependency array means this runs only once
 ```
 
-#### 2. **componentDidUpdate** (Runs after every render if dependencies change)
+### 2. **componentDidUpdate** (Runs after every render if dependencies change)
 
 ```js
 useEffect(() => {
@@ -32,7 +32,7 @@ useEffect(() => {
 });
 ```
 
-#### 3. **componentWillUnmount** (Cleanup before component is removed)
+### 3. **componentWillUnmount** (Cleanup before component is removed)
 
 ```js
 useEffect(() => {
@@ -46,7 +46,7 @@ useEffect(() => {
 }, []); // Empty dependency array ensures this cleanup only runs on unmount
 ```
 
-#### Combining Lifecycle Methods
+### Combining Lifecycle Methods
 
 ```js
 useEffect(() => {
@@ -58,15 +58,15 @@ useEffect(() => {
 }, [dependency]); // Runs on mount, dependency change, and cleanup on unmount
 ```
 
-### What are React Hooks, and why were they introduced?
+## What are React Hooks, and why were they introduced?
 
 React Hooks are functions that allow you to use state and other React features in functional components. They were introduced in React 16.8 to enable state management and side effects without converting components to class-based components. This promotes cleaner, more readable code and allows for reusable logic across components.
 
-### Can you explain the difference between class components and functional components with Hooks?
+## Can you explain the difference between class components and functional components with Hooks?
 
 Class components manage state and lifecycle methods through `this` and require more boilerplate code. Functional components with Hooks allow you to manage state and side effects using `useState` and `useEffect`, respectively, resulting in less code and improved readability. They also promote better composition of behavior through custom hooks.
 
-### What are the rules of Hooks?
+## What are the rules of Hooks?
 
 The two main rules are:
 
@@ -74,23 +74,23 @@ The two main rules are:
 
 2. **Only call Hooks from React functions:** You can call Hooks from functional components or custom Hooks, but not from regular JavaScript functions.
 
-### What is the purpose of the `useState` hook?
+## What is the purpose of the `useState` hook?
 
 The `useState` hook is used to declare state variables in functional components. It returns an array with the current state value and a function to update that state.
 
-### How does the `useEffect` hook work? Can you explain its dependency array?
+## How does the `useEffect` hook work? Can you explain its dependency array?
 
 The `useEffect` hook performs side effects in functional components, such as data fetching or subscribing to events. It takes a function as its first argument and an optional dependency array as its second argument. The effect runs after the component renders. The dependency array controls when the effect runs—if it’s empty, the effect runs once on mount; if it contains values, the effect runs whenever those values change.
 
-### What is the purpose of the `useContext` hook?
+## What is the purpose of the `useContext` hook?
 
 The `useContext` hook allows functional components to subscribe to context changes, providing a way to access context values without manually passing props down the component tree. It simplifies state management for global data like themes or user information.
 
-### How do you optimize performance in a component using Hooks?
+## How do you optimize performance in a component using Hooks?
 
 To optimize performance, you can: - Use `React.memo` to prevent unnecessary re-renders. - Utilize `useCallback` to memoize functions that are passed as props. - Use `useMemo` to memoize expensive calculations. - Properly manage dependencies in `useEffect` to avoid running effects too often.
 
-### Can you explain the difference between `useMemo` and `useCallback`?
+## Can you explain the difference between `useMemo` and `useCallback`?
 
  `useMemo` memoizes the result of a computation, returning a cached value unless its dependencies change:
 
@@ -103,7 +103,7 @@ The difference between `useMemo` and `useCallback` lies in their purpose:
 
 ---
 
-### **`useMemo` Example**:
+## **`useMemo` Example**:
 Memoize a computed value.
 
 ```javascript
@@ -136,7 +136,7 @@ export default function App() {
 
 ---
 
-### **`useCallback` Example**:
+## **`useCallback` Example**:
 Memoize a function.
 
 ```javascript
@@ -170,11 +170,11 @@ export default function App() {
 
 ---
 
-### Summary:
+## Summary:
 - Use `useMemo` when you need to **memoize a computed value**.
 - Use `useCallback` when you need to **memoize a function** to avoid passing a new reference to child components.
 
-### What are custom hooks, and how do you create one?
+## What are custom hooks, and how do you create one?
 
 Custom hooks are JavaScript functions that leverage existing hooks to encapsulate and reuse logic. They must start with the word "use". For example:
 
@@ -190,7 +190,7 @@ function useFetch(url) {
 }
 ```
 
-### How does `useReducer` work, and when would you use it instead of `useState`?
+## How does `useReducer` work, and when would you use it instead of `useState`?
 
 `useReducer` is a hook that manages complex state logic with a reducer function, similar to Redux. It’s particularly useful when you have multiple state values that rely on each other or when the next state depends on the previous state. It can help keep state updates organized and predictable.
 
@@ -227,19 +227,19 @@ export default function Counter() {
 
 ```
 
-### How can you share logic between components using custom hooks?
+## How can you share logic between components using custom hooks?
 
 Custom hooks encapsulate logic that can be reused across components. You can extract shared stateful logic into a custom hook and call it in any component. This promotes DRY principles and makes code more maintainable.
 
-### What is the purpose of `useLayoutEffect`, and how does it differ from `useEffect`?
+## What is the purpose of `useLayoutEffect`, and how does it differ from `useEffect`?
 
  `useLayoutEffect` is similar to `useEffect`, but it runs synchronously after all DOM mutations. This means it can be used for measuring layout and making changes before the browser paints. It’s generally used for operations that need to happen immediately after rendering but before the browser updates the screen.
 
-### Can you explain how React’s built-in hooks work under the hood?
+## Can you explain how React’s built-in hooks work under the hood?
 
   React hooks leverage a series of linked lists to track the state and effects of each component during render. When a component renders, React maintains a list of Hooks in the order they are called, ensuring that their states and effects correspond to the correct component instance across re-renders.
 
-### How would you implement a debounced input field using Hooks?
+## How would you implement a debounced input field using Hooks?
 
 You can implement a debounced input field by using `useState` for the input value and `useEffect` to set a timeout:
 
@@ -278,7 +278,7 @@ export default DebouncedInput;
 
 ```
 
-### Imagine you have a complex state in your component. How would you manage it using Hooks?
+## Imagine you have a complex state in your component. How would you manage it using Hooks?
 
 For complex state, I would use `useReducer` to manage the state in a predictable way. This approach allows handling various actions in a single function and keeps the state logic organized:
 
@@ -297,7 +297,7 @@ For complex state, I would use `useReducer` to manage the state in a predictable
     const [state, dispatch] = useReducer(reducer, initialState);
 ```
 
-### How would you implement form handling with validation using Hooks?**
+## How would you implement form handling with validation using Hooks?**
 
  I would manage the form state using `useState`, create a function to handle input changes, and validate the form on submission. Example:
 
@@ -326,7 +326,7 @@ For complex state, I would use `useReducer` to manage the state in a predictable
     };
 ```
 
-### How would you implement error boundaries with Hooks?
+## How would you implement error boundaries with Hooks?
 
 While error boundaries cannot be implemented directly with Hooks, you can create a class component that catches errors and use it to wrap functional components. Alternatively, you can handle errors in functional components using `useEffect` or custom hooks to log errors and provide fallback UI.
 

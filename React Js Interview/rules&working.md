@@ -70,5 +70,4 @@ This table summarizes the key differences between the Real DOM and Virtual DOM, 
 | **Event Object**            | Automatically available                    | Synthetic event object                    |
 | **Event Propagation**       | Directly on DOM, may cause performance issues | Uses event delegation for better performance |
 
-## React Router?
 
