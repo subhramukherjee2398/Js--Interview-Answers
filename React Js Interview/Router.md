@@ -1,5 +1,5 @@
 
-## What is React Router, and why is it used in React applications?**
+## What is React Router, and why is it used in React applications?
    - React Router is a standard library for routing in React applications.
    - It enables navigation between different components, allowing for a single-page application (SPA) experience without reloading the page.
    -  It manages the browser's history and allows developers to define routes and link components to those routes.
