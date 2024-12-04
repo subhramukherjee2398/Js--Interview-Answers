@@ -330,3 +330,42 @@ For complex state, I would use `useReducer` to manage the state in a predictable
 
 While error boundaries cannot be implemented directly with Hooks, you can create a class component that catches errors and use it to wrap functional components. Alternatively, you can handle errors in functional components using `useEffect` or custom hooks to log errors and provide fallback UI.
 
+## why we need to da a cleanup function in useEffect?
+
+In React, the useEffect hook is commonly used for handling side effects in functional components, such as fetching data, setting up subscriptions, or manually modifying the DOM. When performing side effects, especially those that involve asynchronous operations, timers, or subscriptions, it's essential to clean up these effects when the component is unmounted or when dependencies change.
+
+The cleanup function in useEffect is used to prevent memory leaks, avoid unnecessary side effects, and maintain a clean state as components are mounted and unmounted.
+
+```jsx
+useEffect(() => {
+  const intervalId = setInterval(() => {
+    console.log('Fetching data...');
+  }, 1000);
+
+  // Cleanup function
+  return () => {
+    clearInterval(intervalId);  // Clears the interval when the component is unmounted
+  };
+}, []);
+
+
+```
+
+## Why need to "use" to make custom hook?
+
+In React, the `use` prefix is used to **identify custom hooks** and **signal to React** that the function follows the rules of hooks. The **main reason** you need to use `use` in a custom hook name is to maintain the consistency and integrity of React’s **hook system**, and it’s required by the **React linter rules** to avoid issues in component behavior.
+
+## What is difference between common function vs custom hooks?
+
+| **Feature**               | **Common Function**                                     | **Custom Hook**                                     |
+|---------------------------|--------------------------------------------------------|-----------------------------------------------------|
+| **State Management**       | Cannot manage state directly.                         | Can use `useState` or `useReducer` for state.       |
+| **Lifecycle Management**   | Cannot interact with the component lifecycle.         | Can use `useEffect`, `useLayoutEffect`, etc.        |
+| **Reusability**            | Reusable for general logic.                           | Reusable logic specific to React components.       |
+| **Access to React Hooks**  | Cannot use React hooks like `useState`, `useEffect`.   | Can use React hooks like `useState`, `useEffect`.   |
+| **Naming Convention**      | No naming restrictions.                               | Must start with `use` (e.g., `useFetch`, `useAuth`).|
+| **Rules of Hooks**         | No restrictions.                                      | Must follow React’s rules of hooks.                |
+
+---
+
+## 

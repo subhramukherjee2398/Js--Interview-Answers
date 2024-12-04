@@ -6,15 +6,23 @@
 
 ## What are the primary components of React Router, and how do they differ?
 
-  - **BrowserRouter**: Uses the HTML5 history API to keep UI in sync with the URL.
 
-   - **HashRouter**: Uses the hash portion of the URL (window.location.hash) to keep UI in sync. It’s useful for static file hosting.
 
-   - **Route**: Defines a route and renders the specified component when the path matches the current URL.
+| **Component/Hook**      | **Purpose**                                                | **Key Difference (v6)**                                      |
+|-------------------------|------------------------------------------------------------|-------------------------------------------------------------|
+| `Routes`                | Wraps route definitions and renders the first matching route. | Replaces `Switch`; matches only the first route that fits.   |
+| `Route`                 | Defines a route and its element.                          | Uses `element` prop instead of `component` or `render`.      |
+| `Link`                  | Creates navigational links.                              | No significant changes.                                     |
+| `Navigate`              | Programmatic and declarative redirects.                   | Replaces `Redirect`.                                         |
+| `useNavigate`           | Hook for programmatic navigation.                         | Replaces `history.push()`.                                   |
+| `useLocation`           | Provides the current location (URL).                      | Same as v5, but cleaner with v6.                             |
+| `useParams`             | Accesses dynamic route params.                            |
 
-   - **Link**: Provides a declarative way to navigate to different routes, replacing the need for `<a>` tags.
+ Same as v5, but works better with nested routes.             |
+| `useMatch`              | Matches routes programmatically.                          | New in v6, simpler route matching.                           |
+| Nested Routes           | Allows defining sub-routes.                              | Simplified and declarative compared to v5.                   |
 
-   - **Switch** (or <Routes> in v6): renders the first child <Route> that matches the current location. This ensures that only one route is rendered at a time, preventing multiple components from being displayed simultaneously.
+
 
 ## How does Route work in React Router, and what role does the path prop play?
    - Defines a route and renders the specified component when the path matches the current URL.
