@@ -1,104 +1,102 @@
-
-
-
 ## What is the difference between var, let, and const?
 
-Ans : 
+**Ans:**
 
-**var** : 
+**`var`**:
 
-`Scope:` Function-scoped or globally scoped. If declared outside a function, it is accessible anywhere in the script. Inside a function, it is only accessible within that function.
+-   **Scope:** Function-scoped or globally-scoped. If declared outside a function, it is accessible anywhere in the script. Inside a function, it is only accessible within that function.
+-   **Hoisting:** Variables declared with `var` are hoisted to the top of their containing function or global context. This means they can be referenced before their declaration, but their value will be `undefined` until the declaration line is reached.
+-   **Re-declaration:** You can re-declare a `var` variable within the same scope.
 
-`Hoisting`: Variables declared with var are hoisted to the top of their containing function or global context. This means they can be referenced before their declaration, but their value will be undefined until the declaration line is reached.
+**`let`**:
 
-`Re-declaration:` You can re-declare a var variable within the same scope.
+-   **Scope:** Block-scoped. Variables declared with `let` are only accessible within the block `{}` they are defined in.
+-   **Hoisting:** Similar to `var`, `let` variables are hoisted, but they cannot be accessed until the declaration is encountered (this is known as the "temporal dead zone").
+-   **Re-declaration:** You cannot re-declare a `let` variable in the same scope.
 
-**let** :
+**`const`**:
 
-`Scope:` Block-scoped. Variables declared with let are only accessible within the block {} they are defined in.
+-   **Scope:** Block-scoped, like `let`.
+-   **Hoisting:** Also hoisted, with the same temporal dead zone behavior as `let`.
+-   **Re-declaration:** You cannot re-declare a `const` variable in the same scope.
+-   **Mutability:** Variables declared with `const` cannot be reassigned. However, if the variable is an object or an array, you can still modify its properties or elements.
 
-`Hoisting:` Similar to var, let variables are hoisted, but they cannot be accessed until the declaration is encountered (this is known as the "temporal dead zone").
+## What is the use of "use strict" in JavaScript?
 
-`Re-declaration:` You cannot re-declare a let variable in the same scope.
+**Ans:**
 
-**const** :
+Basically, `use strict` is an optional flag that can be used to enable stricter parsing and error handling in ECMAScript modules.
 
-Scope: Block-scoped, like let.
+**Restrictions:**
 
-Hoisting: Also hoisted, with the same temporal dead zone behavior as let.
-Re-declaration: You cannot re-declare a const variable in the same scope.
+1.  **Prevents Undeclared Variables.**
+2.  **Disallows Duplicate Parameter Names.**
+3.  **Eliminates `this` Binding to Global Object:** (does not allow to get access to the global object).
+4.  **Prohibits Deleting Variables/Objects/Functions.**
 
-Mutability: Variables declared with const cannot be reassigned. However, if the variable is an object or an array, you can still modify its properties or elements
+## What is the global context value in different environments?
 
+**Ans:**
 
-## What is the use of "use strict" in js ?
+| JavaScript Environment | Global Object | Access Example | Notes |
+| :--- | :--- | :--- | :--- |
+| **Browser** | `window` / `self` / `frames` / `globalThis` | `console.log(window);` | `window` is the main global object in browsers. `globalThis` is standard and cross-platform. |
+| **Node.js** | `global` / `globalThis` | `console.log(global);` | `global` is specific to Node.js. `globalThis` is the cross-platform standard. |
+| **Web Workers** | `self` / `globalThis` | `console.log(self);` | `self` is used as the global object in Web Workers. |
+| **Deno** | `globalThis` | `console.log(globalThis);` | Deno follows the standard `globalThis`. |
+| **Shell (e.g., Rhino, SpiderMonkey)** | `global` | `console.log(global);` | Some command-line environments use `global`. |
+| **Electron (Renderer Process)** | `window` / `global` | `console.log(window);` | Electron has access to both `window` (Browser) and `global` (Node.js). |
 
-Ans : Basuically use strict is a optional flag that can be used to enable stricter parsing and error handling in ECMAScript modules.
-
-Restrictions:
-
-1.Prevents Undeclared Variables.
-
-2.Disallows Duplicate Parameter Names.
-
-3.Eliminates this Binding to Global Object: ( does not allow gert access global object).
-
-4.Prohibits Deleting Variables/Objects/Functions:
-
-## Global context value if different in different environments?
-
-Ans :
-
-| **JavaScript Environment**       | **Global Object**                       | **Access Example**                               | **Notes**                                                                                     |
-|----------------------------------|-----------------------------------------|------------------------------------------------|---------------------------------------------------------------------------------------------|
-| **Browser**                      | `window` / `self` / `frames` / `globalThis` | ```console.log(window);```                       | `window` is the main global object in browsers. `globalThis` is standard and cross-platform. |
-| **Node.js**                      | `global` / `globalThis`                 | ```console.log(global);```                       | `global` is specific to Node.js. `globalThis` is the cross-platform standard.               |
-| **Web Workers**                  | `self` / `globalThis`                   | ```console.log(self);```                         | `self` is used as the global object in Web Workers.                                         |
-| **Deno**                         | `globalThis`                            | ```console.log(globalThis);```                   | Deno follows the standard `globalThis`.                                                     |
-| **Shell (e.g., Rhino, SpiderMonkey)** | `global`                              | ```console.log(global);```                       | Some command-line environments use `global`.                                                |
-| **Electron (Renderer Process)**  | `window` / `global`                     | ```console.log(window);```                       | Electron has access to both `window` (Browser) and `global` (Node.js).                      |
-
-```
+```javascript
 console.log(globalThis); // Works in Browser, Node.js, Deno, Web Workers, etc.
 ```
 
 ## What is scope in JavaScript?
 
-Ans : 
+**Ans:**
 
-Scope refers to the visibility or accessibility of variables, functions, and objects in some particular part of our code during runtime.
+Scope refers to the visibility or accessibility of variables, functions, and objects in some particular part of your code during runtime.
 
 There are different types of scopes in JavaScript:
 
-1. **Global Scope**: Variables declared outside of any function or block have global scope. These variables can be accessed from anywhere in your code.
-
-2. **Local Scope**: Variables declared inside a function or block have local scope. These variables can only be accessed within that function or block.
-
-3. **Block Scope**: Variables declared inside a block, such as an if statement or a loop, have block scope. These variables can only be accessed within that block.
-
-4. **Function Scope**: Variables declared inside a function have function scope. These variables can only be accessed within that function.
-
-5. **Lexical Scope**: Functions can access varaibles from their parent or outer scopes. This is called lexical scope.
-
+1.  **Global Scope:** Variables declared outside of any function or block have global scope. These variables can be accessed from anywhere in your code.
+2.  **Local Scope:** Variables declared inside a function or block have local scope. These variables can only be accessed within that function or block.
+3.  **Block Scope:** Variables declared inside a block, such as an `if` statement or a loop, have block scope. These variables can only be accessed within that block.
+4.  **Function Scope:** Variables declared inside a function have function scope. These variables can only be accessed within that function.
+5.  **Lexical Scope:** Functions can access variables from their parent or outer scopes. This is called lexical scope.
 
 ## What is Hoisting in JavaScript?
 
-Ans : Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compile phase. This means that you can use variables and functions before they are declared in the code. However, only the declarations are hoisted, not the initializations.
+**Ans:**
 
-- Only declarations are hoisted, not initializations.
-- var variables are hoisted to the top of their scope and initialized with undefined.
-- let and const are also hoisted but are in a "Temporal Dead Zone" until declared.
-- Function declarations are fully hoisted, while function expressions are not.
+Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compile phase. This means that you can use variables and functions before they are declared in the code. However, only the declarations are hoisted, not the initializations.
 
-## What is closure in JavaScript?
+-   Only declarations are hoisted, not initializations.
+-   `var` variables are hoisted to the top of their scope and initialized with `undefined`.
+-   `let` and `const` are also hoisted but are in a "Temporal Dead Zone" until declared.
+-   Function declarations are fully hoisted, while function expressions are not.
 
-Ans : In javascript ,if we have a child function inside a parent function, the child function can access the variables of the parent function even after the parent function has finished executing. That Means closure allows a function to "remember" its surrounding context or environment, even after that context has finished executing.
+```javascript
+console.log(a); // undefined
+var a = 5;
+console.log(a); // 5
 
-so we can say in a easier way that a function always binds with it's lexical scope that forms a closure.
+greet(); // Hello!
 
-```js
+function greet() {
+  console.log("Hello!");
+}
+```
 
+## What is a closure in JavaScript?
 
+**Ans:**
+
+In JavaScript, if we have a child function inside a parent function, the child function can access the variables of the parent function even after the parent function has finished executing. This means a closure allows a function to "remember" its surrounding context or environment, even after that context has finished executing.
+
+So we can say in an easier way that a function always binds with its lexical scope, which forms a closure.
+
+```javascript
 function outerFunction() {
     let outerVariable = 'I am from the outer scope!';
 
@@ -111,40 +109,37 @@ function outerFunction() {
 
 const closureFunc = outerFunction(); // outerFunction is executed
 closureFunc(); // Output: "I am from the outer scope!"
-
-
 ```
 
-## What is Event Loop?
+## What is the Event Loop?
 
-1.JavaScript is single-threaded, meaning it can execute one task at a time. However, it can handle asynchronous operations through an event-driven model.
+**Ans:**
 
-2.When a JavaScript program runs, functions are pushed onto a call stack. When a function is called, it executes and then is popped off the stack when completed.
+1.  JavaScript is single-threaded, meaning it can execute one task at a time. However, it can handle asynchronous operations through an event-driven model.
+2.  When a JavaScript program runs, functions are pushed onto a call stack. When a function is called, it executes and then is popped off the stack when completed.
+3.  For asynchronous operations (like `setTimeout`, network requests, etc.), JavaScript utilizes Web APIs. These operations are handed off to the browser's APIs, which handle them outside the JavaScript engine.
+4.  Once an asynchronous operation is completed by Web APIs, its callback function is added to the callback queue/Task queue. This queue holds messages waiting to be processed.
+5.  The event loop continuously checks the call stack. If it’s empty and there are tasks in the callback queue, they are processed in the next step.
+6.  The event loop checks the microtask queue. If there are any microtasks, it will execute them all before moving to the next macrotask (e.g., `setTimeout`).
+7.  Once the microtask queue is empty, the event loop takes the next macrotask from the macrotask queue and executes it.
 
-3.For asynchronous operations (like setTimeout, network requests, etc.), JavaScript utilizes Web APIs. These operations are handed off to the browser's APIs, which handle them outside the JavaScript engine.
-
-4.Once an asynchronous operation is completed by web apis, its callback function is added to the callback queue/Task queue. This queue holds messages waiting to be processed.
-
-5.The event loop continuously checks the call stack. If it’s empty and there are tasks in the callback queue and processed to next step.
-
-6.The event loop checks the microtask queue. If there are any microtasks, it will execute them all before moving to the next macrotask (ex: setTimeout)
-
-7.Once the microtask queue is empty, the event loop takes the next macrotask from the macrotask queue and executes it.
 Here's a list of **microtasks** and **macrotasks** in JavaScript:
 
 #### Microtasks:
-1. Promises (`.then()` and `.catch()`)
-2. `queueMicrotask()`
-3. `MutationObserver` callbacks
-4. `process.nextTick()` (Node.js-specific)
+
+1.  Promises (`.then()` and `.catch()`)
+2.  `queueMicrotask()`
+3.  `MutationObserver` callbacks
+4.  `process.nextTick()` (Node.js-specific)
 
 #### Macrotasks:
-1. `setTimeout()`
-2. `setInterval()`
-3. `setImmediate()` (Node.js-specific)
-4. `requestAnimationFrame()` (browser-specific)
-5. I/O operations (e.g., `fs.readFile()` in Node.js)
-6. User interface rendering tasks (browser-specific)
-7. Event listeners (e.g., `click`, `keydown` events)
+
+1.  `setTimeout()`
+2.  `setInterval()`
+3.  `setImmediate()` (Node.js-specific)
+4.  `requestAnimationFrame()` (browser-specific)
+5.  I/O operations (e.g., `fs.readFile()` in Node.js)
+6.  User interface rendering tasks (browser-specific)
+7.  Event listeners (e.g., `click`, `keydown` events)
 
 This breakdown helps you understand which tasks run first and how the event loop handles each type.
