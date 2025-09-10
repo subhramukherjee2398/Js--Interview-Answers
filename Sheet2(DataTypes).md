@@ -354,13 +354,9 @@ JavaScript converts `[]` to `0` and `![]` to `false`, resulting in `0 == 0`, whi
 
 Use rounding techniques or libraries like `math.js` to handle floating-point precision.
 
-```
-Use .toFixed() or custom rounding when you just need formatted decimals.
-
-Use Number.EPSILON for float-safe comparisons.
-
-Use libraries like math.js or decimal.js for critical financial/scientific calculations.
-```
+- Use `.toFixed()` or custom rounding when you just need formatted decimals.
+- Use `Number.EPSILON` for float-safe comparisons.
+- Use libraries like `math.js` or `decimal.js` for critical financial/scientific calculations.
 
 ## When would you use a `Symbol` as a property key over a string in an object?
 
