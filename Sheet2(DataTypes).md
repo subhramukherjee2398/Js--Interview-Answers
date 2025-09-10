@@ -208,6 +208,53 @@ JavaScript uses a mark-and-sweep algorithm. Objects not referenced are marked fo
 
 -   **WeakMap** and **WeakSet** allow garbage collection of items with no other references. They are useful for caching or managing objects without preventing garbage collection.
 
+# JavaScript Garbage Collection & Mark-and-Sweep Algorithm
+
+## 🔹 JavaScript Garbage Collection
+JavaScript has **automatic garbage collection**, meaning developers don’t need to manually free memory.
+
+- **Primitive types** (number, string, boolean, null, undefined, symbol, bigint)  
+  → Stored on the **stack** and cleared automatically when out of scope.
+
+- **Reference types** (objects, arrays, functions, etc.)  
+  → Stored on the **heap** and managed by the **garbage collector** using the **mark-and-sweep algorithm**.
+
+---
+
+## 🔹 Mark-and-Sweep Algorithm
+
+### Steps:
+1. **Roots Identification**
+   - Roots are objects directly accessible (e.g., global objects like `window` or `global`, variables in scope, call stack).
+
+2. **Mark Phase**
+   - The GC starts from the roots.
+   - Every object reachable via references is *marked* as alive.
+
+3. **Sweep Phase**
+   - Objects **not marked as reachable** are considered garbage.
+   - These objects are “swept” and memory is freed.
+
+---
+
+## 🔹 Example
+
+```javascript
+function test() {
+  let a = { name: "subhra" }; 
+  let b = { hobby: "coding" };
+
+  a.ref = b; // a → b
+  b.ref = a; // b → a (circular reference)
+}
+
+test();
+
+// After test() finishes, both a and b go out of scope.
+// Even though a ↔ b reference each other, they are not reachable from roots, so both will be collected.
+// This shows why mark-and-sweep is powerful: it handles circular references safely.
+```
+
 ## What is `BigInt`, and how is it different from `Number` in JavaScript?
 
 **Ans:**
@@ -250,59 +297,64 @@ JSON (JavaScript Object Notation) is a format for representing data structures a
 
 Closures can capture and retain access to primitive and reference values in their scope even after the function has completed.
 
-### Code-Based Questions
+## Code-Based Questions
 
-#### Write a function to check if a value is an array or not.
+### Write a function to check if a value is an array or not.
 
+**Ans:**
 ```javascript
 function isArray(value) {
   return Array.isArray(value);
 }
 ```
 
-#### How would you merge two objects in JavaScript without mutating the original objects?
+### How would you merge two objects in JavaScript without mutating the original objects?
 
+**Ans:**
 ```javascript
 const obj1 = { a: 1 };
 const obj2 = { b: 2 };
 const merged = { ...obj1, ...obj2 };
 ```
 
-#### How can you convert an array-like object (like `arguments`) into an actual array?
+### How can you convert an array-like object (like `arguments`) into an actual array?
 
+**Ans:**
 ```javascript
 const arrayFromArguments = Array.from(arguments);
 ```
 
-#### Write a function that deep clones an object.
+### Write a function that deep clones an object.
 
+**Ans:**
 ```javascript
 function deepClone(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 ```
 
-#### How would you implement a custom `typeof` function to accurately determine the type of any variable?
+### How would you implement a custom `typeof` function to accurately determine the type of any variable?
 
+**Ans:**
 ```javascript
 function getType(value) {
   return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
 }
 ```
 
-#### Why do you think JavaScript treats `[] == ![]` as `true`?
+## Why do you think JavaScript treats `[] == ![]` as `true`?
 
 **Ans:**
 
 JavaScript converts `[]` to `0` and `![]` to `false`, resulting in `0 == 0`, which is `true`.
 
-#### How would you handle the precision issues with floating-point numbers in JavaScript?
+## How would you handle the precision issues with floating-point numbers in JavaScript?
 
 **Ans:**
 
 Use rounding techniques or libraries like `math.js` to handle floating-point precision.
 
-#### When would you use a `Symbol` as a property key over a string in an object?
+## When would you use a `Symbol` as a property key over a string in an object?
 
 **Ans:**
 
